@@ -1,9 +1,22 @@
 import React from 'react'
+import HomeCard from '../components/HomeCom/HomeCard'
+import Heroabout from '../components/AboutCom/Heroabout'
+import OurMission from '../components/AboutCom/Ourmission'
+import OurVision from '../components/AboutCom/Ourvision'
+import FuturePlans from '../components/AboutCom/Futureplans'
+import Companydetails from '../components/AboutCom/Companydetails'
+
+
 
 function About() {
   return (
     <div>
-      <h1>This is about Page</h1>
+      <Heroabout/>
+       <HomeCard/>
+       <OurMission/>
+       <OurVision/>
+       <FuturePlans/>
+       <Companydetails/>
     </div>
   )
 }
