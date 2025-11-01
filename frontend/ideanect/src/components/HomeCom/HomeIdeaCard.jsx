@@ -177,11 +177,13 @@ const IdeasSection = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-2">
+                  <div className="flex justify-center">
+                    <Link to='/login'> 
                     <button className="flex-1 px-4 py-2 bg-gradient-to-r from-[#5471ff] to-[#8b3ffc] text-white rounded-lg hover:shadow-lg transition-all duration-200 text-sm font-medium flex items-center justify-center group">
                       Invest Now
                       <FiArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </button>
+                    </Link>
                   </div>
                 </div>
               </div>
