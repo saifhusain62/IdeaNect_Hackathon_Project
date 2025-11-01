@@ -1,9 +1,14 @@
 import React from 'react'
+import HeroHome from '../components/HomeCom/HeroHome'
+import HomeCard from '../components/HomeCom/HomeCard'
+import HomeIdeaCard from '../components/HomeCom/HomeIdeaCard'
 
 function Home() {
   return (
     <div>
-      <h1>This is Home page</h1>
+     <HeroHome/>
+     <HomeCard/>
+     <HomeIdeaCard/>
     </div>
   )
 }

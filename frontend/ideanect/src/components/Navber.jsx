@@ -26,7 +26,6 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
-  // Add role-specific menu items
   const getRoleSpecificItems = () => {
     if (!user) return [];
     
@@ -41,16 +40,15 @@ const Navbar = () => {
   const allNavItems = [...navItems, ...getRoleSpecificItems()];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-black/50 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <div className="w-32 h-32  rounded-lg flex items-center justify-center">
+              <div className="w-32 h-32 rounded-lg flex items-center justify-center">
                 <img src={Logo} alt="" />
               </div>
-              
             </Link>
           </div>
 
@@ -63,8 +61,8 @@ const Navbar = () => {
                   key={item.name}
                   to={item.path}
                   className={({ isActive }) =>
-                    `text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                      isActive ? 'text-blue-600 border-b-2 border-blue-600' : ''
+                    `text-white/80 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                      isActive ? 'text-white border-b-2 border-blue-500' : ''
                     }`
                   }
                 >
@@ -78,17 +76,17 @@ const Navbar = () => {
               {user ? (
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                      <User size={16} className="text-blue-600" />
+                    <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center border border-blue-500/30">
+                      <User size={16} className="text-blue-400" />
                     </div>
                     <div className="text-sm">
-                      <p className="font-medium text-gray-700">{user.name}</p>
-                      <p className="text-xs text-gray-500 capitalize">{user.role}</p>
+                      <p className="font-medium text-white">{user.name}</p>
+                      <p className="text-xs text-gray-400 capitalize">{user.role}</p>
                     </div>
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center space-x-1 text-gray-600 hover:text-red-600 px-3 py-2 text-sm font-medium transition-colors"
+                    className="flex items-center space-x-1 text-white/80 hover:text-red-400 px-3 py-2 text-sm font-medium transition-colors"
                   >
                     <LogOut size={16} />
                     <span>Logout</span>
@@ -98,7 +96,7 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/login"
-                    className="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium border border-gray-300 rounded-lg hover:border-blue-600 transition-colors duration-200"
+                    className="text-white hover:text-blue-400 px-4 py-2 text-sm font-medium border border-white/30 rounded-lg hover:border-blue-400 transition-colors duration-200"
                   >
                     Login
                   </Link>
@@ -117,7 +115,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+              className="text-white hover:text-gray-300 focus:outline-none focus:text-gray-300"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -127,7 +125,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {allNavItems.map((item) => (
               <NavLink
@@ -137,8 +135,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `block px-3 py-2 rounded-md text-base font-medium ${
                     isActive
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                      ? 'text-white bg-blue-500/20 border-l-4 border-blue-500'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
                   }`
                 }
               >
@@ -147,31 +145,31 @@ const Navbar = () => {
             ))}
             
             {user ? (
-              <div className="border-t border-gray-200 pt-3 space-y-2">
+              <div className="border-t border-white/10 pt-3 space-y-2">
                 <div className="px-3 py-2">
-                  <p className="font-medium text-gray-700">{user.name}</p>
-                  <p className="text-xs text-gray-500 capitalize">{user.role}</p>
+                  <p className="font-medium text-white">{user.name}</p>
+                  <p className="text-xs text-gray-400 capitalize">{user.role}</p>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded-md"
+                  className="w-full text-left px-3 py-2 text-red-400 hover:bg-red-500/10 rounded-md"
                 >
                   Logout
                 </button>
               </div>
             ) : (
-              <div className="border-t border-gray-200 pt-3 space-y-2">
+              <div className="border-t border-white/10 pt-3 space-y-2">
                 <Link
                   to="/login"
                   onClick={() => setIsOpen(false)}
-                  className="block w-full text-center text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium border border-gray-300 rounded-lg"
+                  className="block w-full text-center text-white hover:text-blue-400 px-3 py-2 text-base font-medium border border-white/30 rounded-lg"
                 >
                   Login
                 </Link>
                 <Link
                   to="/signup"
                   onClick={() => setIsOpen(false)}
-                  className="block w-full text-center bg-blue-600 text-white hover:bg-blue-700 px-3 py-2 text-base font-medium rounded-lg"
+                  className="block w-full text-center bg-gradient-to-r from-[#5471ff] to-[#8b3ffc] text-white hover:from-[#4864f0] hover:to-[#7c36eb] px-3 py-2 text-base font-medium rounded-lg"
                 >
                   Sign Up
                 </Link>
