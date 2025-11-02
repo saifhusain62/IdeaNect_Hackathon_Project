@@ -21,7 +21,7 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center">
             {/* Main Title */}
-           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight uppercase bg-gradient-to-r from-blue-500 to-purple-300 bg-clip-text text-transparent">
+           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6  uppercase bg-gradient-to-r from-blue-500 to-purple-300 bg-clip-text text-transparent">
              Share your startup idea & 
                <span className="block mt-2">connect with real investors.</span>
             </h1>
