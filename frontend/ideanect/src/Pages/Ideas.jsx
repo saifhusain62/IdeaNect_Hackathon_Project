@@ -1,9 +1,15 @@
 import React from 'react'
+import HeroIdea from '../components/IdeaCom/HeroIdea'
+import HomeIdeasFilter from '../components/HomeCom/HomeIdeasFilter'
+import IdeaCard from '../components/IdeaCom/IdeaCard'
 
 function Ideas() {
   return (
     <div>
-      <h1>This is idea page</h1>
+      <HeroIdea/>
+      <HomeIdeasFilter/>
+      <IdeaCard/>
+     
     </div>
   )
 }
