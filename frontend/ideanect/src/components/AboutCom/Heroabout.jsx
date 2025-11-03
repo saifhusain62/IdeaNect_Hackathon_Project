@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeroSection = () => {
   return (
-    <section className="relative h-[100vh] -mt-[70px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[110vh] -mt-[70px] flex items-center justify-center overflow-hidden">
       {/* Blurred Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm scale-110"
@@ -42,7 +42,7 @@ const HeroSection = () => {
         </p>
         
 
-        {/* Stats */}
+        {/* Stat*/}
         <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-8 border-t border-white/10">
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-white mb-1">$50M+</div>

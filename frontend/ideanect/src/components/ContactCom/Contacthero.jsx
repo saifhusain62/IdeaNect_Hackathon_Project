@@ -5,7 +5,7 @@ import { BsArrowDown } from 'react-icons/bs';
 
 const ContactHero = () => {
   return (
-    <section className="relative h-[100vh] -mt-[70px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[110vh] -mt-[70px] flex items-center justify-center overflow-hidden font-sans">
       {/* Blurred Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center blur-md scale-110"
@@ -39,10 +39,10 @@ const ContactHero = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto font-sans">
         
         {/* Main Title */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight drop-shadow-2xl">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
           Get in Touch
           <span className="block mt-2">With Ideanect</span>
         </h1>

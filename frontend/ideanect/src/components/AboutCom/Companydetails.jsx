@@ -14,11 +14,11 @@ const CompanyDetails = () => {
             <span className="text-[#5471ff] font-bold text-sm uppercase tracking-wider">Company Profile</span>
           </div>
           
-          <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-4 tracking-tight">
+          <h2 className="text-6xl md:text-7xl  text-gray-900 mb-4  font-sans">
             Ideanect
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#5471ff] to-[#8b3ffc] mx-auto mb-6"></div>
-          <p className="text-2xl text-gray-600 max-w-3xl mx-auto font-light">
+          <p className="text-2xl text-gray-600 max-w-3xl mx-auto font-sans">
             Where Brilliant Ideas Meet Strategic Investment
           </p>
         </div>
@@ -108,7 +108,7 @@ const CompanyDetails = () => {
         </div>
         
         {/* Core Values - Premium Layout */}
-        <div className="mb-16">
+        <div className="mb-16 font-sans">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-900 mb-3">Our Core Values</h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
