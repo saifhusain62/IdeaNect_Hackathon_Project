@@ -1,87 +1,111 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie';
 
-const AuthContext = createContext({});
+const AuthContext = createContext();
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check if user is logged in on mount
+  // Load user from localStorage on mount
   useEffect(() => {
-    checkAuth();
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+    setLoading(false);
   }, []);
 
-  const checkAuth = async () => {
+  const signup = async (formData) => {
     try {
-      const token = Cookies.get('token');
-      if (token) {
-        // Verify token with backend
-        const response = await axios.get('http://localhost:5000/api/auth/verify', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        setUser(response.data.user);
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      // Create user object
+      const newUser = {
+        id: Date.now(), // Simple ID generation
+        name: formData.name,
+        email: formData.email,
+        role: formData.role,
+        createdAt: new Date().toISOString()
+      };
+
+      // Store in localStorage (acting as our database)
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      
+      // Check if email already exists
+      if (users.find(u => u.email === formData.email)) {
+        return {
+          success: false,
+          error: 'Email already exists'
+        };
       }
+
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+      localStorage.setItem('user', JSON.stringify(newUser));
+      
+      setUser(newUser);
+
+      return {
+        success: true,
+        user: newUser
+      };
     } catch (error) {
-      console.error('Auth check failed:', error);
-      Cookies.remove('token');
-    } finally {
-      setLoading(false);
+      return {
+        success: false,
+        error: 'Signup failed. Please try again.'
+      };
     }
   };
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
-        email,
-        password
-      });
-      
-      const { token, user } = response.data;
-      Cookies.set('token', token, { expires: 7 });
-      setUser(user);
-      
-      return { success: true, user };
-    } catch (error) {
-      return { 
-        success: false, 
-        error: error.response?.data?.message || 'Login failed' 
-      };
-    }
-  };
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
 
-  const signup = async (userData) => {
-    try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', userData);
-      
-      const { token, user } = response.data;
-      Cookies.set('token', token, { expires: 7 });
-      setUser(user);
-      
-      return { success: true, user };
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = users.find(u => u.email === email);
+
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+        setUser(user);
+        return {
+          success: true,
+          user
+        };
+      } else {
+        return {
+          success: false,
+          error: 'Invalid email or password'
+        };
+      }
     } catch (error) {
-      return { 
-        success: false, 
-        error: error.response?.data?.message || 'Signup failed' 
+      return {
+        success: false,
+        error: 'Login failed. Please try again.'
       };
     }
   };
 
   const logout = () => {
-    Cookies.remove('token');
+    localStorage.removeItem('user');
     setUser(null);
   };
 
   const value = {
     user,
-    login,
     signup,
+    login,
     logout,
-    loading,
-    checkAuth
+    loading
   };
 
   return (

@@ -1,261 +1,187 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Upload, AlertCircle, CheckCircle } from 'lucide-react';
+import { Lightbulb, Target, DollarSign, Users, FileText } from 'lucide-react';
 
-const IdeaSubmit = () => {
+const SubmitIdea = () => {
   const { user } = useAuth();
   const [formData, setFormData] = useState({
     title: '',
-    category: '',
     description: '',
+    category: '',
     fundingGoal: '',
-    timeline: '',
-    attachments: null
+    teamSize: ''
   });
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
-
-  const categories = [
-    'Technology',
-    'Healthcare',
-    'Education',
-    'Energy',
-    'Finance',
-    'Entertainment',
-    'Food & Beverage',
-    'Transportation',
-    'Other'
-  ];
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === 'attachments') {
-      setFormData({ ...formData, [name]: files[0] });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
+    // Store idea in localStorage
+    const ideas = JSON.parse(localStorage.getItem('ideas') || '[]');
+    const newIdea = {
+      ...formData,
+      id: Date.now(),
+      creatorId: user.id,
+      creatorName: user.name,
+      createdAt: new Date().toISOString(),
+      status: 'pending'
+    };
+    ideas.push(newIdea);
+    localStorage.setItem('ideas', JSON.stringify(ideas));
     
-    try {
-      // Submit to backend
-      // const response = await axios.post('/api/ideas/submit', formData);
-      
-      // Simulated success
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({
-          title: '',
-          category: '',
-          description: '',
-          fundingGoal: '',
-          timeline: '',
-          attachments: null
-        });
-      }, 3000);
-    } catch (err) {
-      setError('Failed to submit idea. Please try again.');
-    }
+    // Reset form
+    setFormData({
+      title: '',
+      description: '',
+      category: '',
+      fundingGoal: '',
+      teamSize: ''
+    });
+    
+    alert('Idea submitted successfully!');
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Submit Your Idea</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Submit Your Idea
+          </h1>
           <p className="text-gray-600 mt-2">
             Share your innovative idea with potential investors
           </p>
         </div>
 
-        {submitted && (
-          <div className="mb-6 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center">
-            <CheckCircle size={20} className="mr-2" />
-            Your idea has been submitted successfully! We'll review it shortly.
-          </div>
-        )}
-
-        {error && (
-          <div className="mb-6 bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg flex items-center">
-            <AlertCircle size={20} className="mr-2" />
-            {error}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-8">
-          <div className="space-y-6">
-            {/* Title */}
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Project Title *
+                <Lightbulb className="inline h-4 w-4 mr-1" />
+                Idea Title
               </label>
               <input
                 type="text"
                 name="title"
-                required
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your project title"
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Enter your idea title"
               />
             </div>
 
-            {/* Category */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Category *
-              </label>
-              <select
-                name="category"
-                required
-                value={formData.category}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              >
-                <option value="">Select a category</option>
-                {categories.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Description */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Project Description *
+                <FileText className="inline h-4 w-4 mr-1" />
+                Description
               </label>
               <textarea
                 name="description"
-                required
                 value={formData.description}
                 onChange={handleChange}
-                rows={6}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+                rows="6"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Describe your idea in detail..."
               />
-              <p className="mt-1 text-sm text-gray-500">
-                Minimum 100 characters
-              </p>
             </div>
 
-            {/* Funding Goal */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Funding Goal ($) *
+                <Target className="inline h-4 w-4 mr-1" />
+                Category
               </label>
-              <input
-                type="number"
-                name="fundingGoal"
-                required
-                value={formData.fundingGoal}
+              <select
+                name="category"
+                value={formData.category}
                 onChange={handleChange}
-                min="1000"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="50000"
-              />
-            </div>
-
-            {/* Timeline */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Estimated Timeline (months) *
-              </label>
-              <input
-                type="number"
-                name="timeline"
                 required
-                value={formData.timeline}
-                onChange={handleChange}
-                min="1"
-                max="60"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="12"
-              />
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="">Select a category</option>
+                <option value="technology">Technology</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="finance">Finance</option>
+                <option value="education">Education</option>
+                <option value="retail">Retail</option>
+                <option value="other">Other</option>
+              </select>
             </div>
 
-            {/* File Upload */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Attachments (Optional)
-              </label>
-              <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-gray-400 transition-colors">
-                <div className="space-y-1 text-center">
-                  <Upload className="mx-auto h-12 w-12 text-gray-400" />
-                  <div className="flex text-sm text-gray-600">
-                    <label
-                      htmlFor="attachments"
-                      className="relative cursor-pointer rounded-md font-medium text-blue-600 hover:text-blue-500"
-                    >
-                      <span>Upload a file</span>
-                      <input
-                        id="attachments"
-                        name="attachments"
-                        type="file"
-                        className="sr-only"
-                        onChange={handleChange}
-                        accept=".pdf,.doc,.docx,.ppt,.pptx"
-                      />
-                    </label>
-                    <p className="pl-1">or drag and drop</p>
-                  </div>
-                  <p className="text-xs text-gray-500">
-                    PDF, DOC, PPT up to 10MB
-                  </p>
-                  {formData.attachments && (
-                    <p className="text-sm text-green-600">
-                      File selected: {formData.attachments.name}
-                    </p>
-                  )}
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <DollarSign className="inline h-4 w-4 mr-1" />
+                  Funding Goal ($)
+                </label>
+                <input
+                  type="number"
+                  name="fundingGoal"
+                  value={formData.fundingGoal}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="50000"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <Users className="inline h-4 w-4 mr-1" />
+                  Team Size
+                </label>
+                <input
+                  type="number"
+                  name="teamSize"
+                  value={formData.teamSize}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="5"
+                />
               </div>
             </div>
 
-            {/* Submit Button */}
-            <div className="pt-4">
-              <button
-                type="submit"
-                disabled={submitted}
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {submitted ? 'Submitting...' : 'Submit Idea'}
-              </button>
-            </div>
-          </div>
-        </form>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-colors"
+            >
+              Submit Idea
+            </button>
+          </form>
+        </div>
 
-        {/* Tips Section */}
-        <div className="mt-8 bg-blue-50 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-blue-900 mb-3">
-            Tips for a Successful Submission
-          </h3>
-          <ul className="space-y-2 text-sm text-blue-800">
-            <li className="flex items-start">
-              <span className="mr-2">•</span>
-              <span>Be clear and concise in your description</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-2">•</span>
-              <span>Include relevant market research and data</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-2">•</span>
-              <span>Set realistic funding goals and timelines</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-2">•</span>
-              <span>Highlight what makes your idea unique</span>
-            </li>
-          </ul>
+        {/* User's Submitted Ideas */}
+        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
+          <h2 className="text-xl font-semibold mb-4">Your Submitted Ideas</h2>
+          <div className="space-y-4">
+            {JSON.parse(localStorage.getItem('ideas') || '[]')
+              .filter(idea => idea.creatorId === user?.id)
+              .map(idea => (
+                <div key={idea.id} className="border-l-4 border-blue-500 pl-4 py-2">
+                  <h3 className="font-medium">{idea.title}</h3>
+                  <p className="text-sm text-gray-500">
+                    Submitted on {new Date(idea.createdAt).toLocaleDateString()}
+                  </p>
+                </div>
+              ))}
+            {JSON.parse(localStorage.getItem('ideas') || '[]')
+              .filter(idea => idea.creatorId === user?.id).length === 0 && (
+              <p className="text-gray-500 text-center py-4">
+                No ideas submitted yet
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default IdeaSubmit;
+export default SubmitIdea;

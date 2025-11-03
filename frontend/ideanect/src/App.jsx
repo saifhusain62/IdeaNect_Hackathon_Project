@@ -11,8 +11,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
-import IdeaSubmit from './pages/IdeaSubmit';
+import Dashboard from './Pages/Dashboard';
+import IdeaSubmit from './Pages/Ideasubmit';
 import Footer from './components/Footer';
 
 function App() {
