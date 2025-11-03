@@ -6,7 +6,7 @@ import { BsArrowDown } from 'react-icons/bs';
 const ContactHero = () => {
   return (
     <section className="relative h-[100vh] -mt-[70px] flex items-center justify-center overflow-hidden">
-      {/* Blurred Dark Background Image */}
+      {/* Blurred Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center blur-md scale-110"
         style={{
