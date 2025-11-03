@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import IdeaSubmit from './pages/IdeaSubmit';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           </Routes>
         </div>
       </AuthProvider>
+      <Footer/>
     </Router>
   );
 }
