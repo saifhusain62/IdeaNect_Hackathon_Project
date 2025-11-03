@@ -1,10 +1,18 @@
 import React from 'react';
+import { FiTarget, FiSmartphone, FiMessageSquare, FiBarChart2, FiGlobe, FiLink, FiMap } from 'react-icons/fi';
+import { BsChatDots, BsGraphUp } from 'react-icons/bs';
+import { MdAnalytics, MdOutlineVideoCall } from 'react-icons/md';
+import { BiWorld, BiNetworkChart } from 'react-icons/bi';
+import { AiOutlineAim, AiOutlineMobile } from 'react-icons/ai';
+import { HiOutlineChip } from 'react-icons/hi';
+import { RiGlobalLine } from 'react-icons/ri';
+import { SiBlockchaindotcom } from 'react-icons/si';
 
 const FuturePlans = () => {
   const roadmapItems = [
     {
       quarter: "Q1 2024",
-      icon: "🎯",
+      icon: <FiTarget />,
       title: "Smart Matching Engine",
       description: "AI-powered algorithm connects startups with their perfect investor matches based on 50+ data points.",
       tags: ["AI", "Machine Learning"],
@@ -12,7 +20,7 @@ const FuturePlans = () => {
     },
     {
       quarter: "Q2 2024",
-      icon: "📱",
+      icon: <FiSmartphone />,
       title: "Mobile Experience",
       description: "Launch native mobile apps for seamless pitching and networking anywhere, anytime.",
       tags: ["iOS", "Android"],
@@ -20,7 +28,7 @@ const FuturePlans = () => {
     },
     {
       quarter: "Q3 2024",
-      icon: "💬",
+      icon: <BsChatDots />,
       title: "Live Chat & Video",
       description: "Integrated messaging and video conferencing for direct startup-investor communication.",
       tags: ["Communication", "Real-time"],
@@ -28,7 +36,7 @@ const FuturePlans = () => {
     },
     {
       quarter: "Q4 2024",
-      icon: "📊",
+      icon: <MdAnalytics />,
       title: "Analytics Dashboard",
       description: "Advanced metrics and insights to track pitch performance and investor engagement.",
       tags: ["Analytics", "Insights"],
@@ -36,7 +44,7 @@ const FuturePlans = () => {
     },
     {
       quarter: "Q1 2025",
-      icon: "🌐",
+      icon: <BiWorld />,
       title: "Global Marketplace",
       description: "Expand to 100+ countries with multi-language support and regional investor networks.",
       tags: ["International", "Growth"],
@@ -44,7 +52,7 @@ const FuturePlans = () => {
     },
     {
       quarter: "Q2 2025",
-      icon: "🔗",
+      icon: <BiNetworkChart />,
       title: "Blockchain Integration",
       description: "Secure, transparent equity tracking and smart contracts for investment agreements.",
       tags: ["Web3", "Blockchain"],
@@ -67,8 +75,10 @@ const FuturePlans = () => {
         
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-full mb-6">
-            <span className="text-2xl">🗺️</span>
+          <div className="inline-flex items-center gap-3 px-5 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-full mb-6">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+              <FiMap className="text-white text-lg" />
+            </div>
             <span className="text-blue-700 font-bold text-sm uppercase tracking-wide">Roadmap</span>
           </div>
           
@@ -96,7 +106,7 @@ const FuturePlans = () => {
                     {item.quarter}
                   </span>
                   <div className={`w-12 h-12 bg-gradient-to-br ${colors[0]} ${colors[1]} rounded-xl flex items-center justify-center shadow-md transform group-hover:scale-110 transition-transform`}>
-                    <span className="text-2xl">{item.icon}</span>
+                    <div className="text-white text-2xl">{item.icon}</div>
                   </div>
                 </div>
                 
@@ -120,7 +130,6 @@ const FuturePlans = () => {
             );
           })}
         </div>
-        
         
       </div>
     </section>
