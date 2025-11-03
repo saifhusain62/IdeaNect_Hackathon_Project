@@ -12,38 +12,52 @@ const HeroSection = () => {
       ></div>
       
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-black/50 to-blue-900/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-blue-900/90 to-slate-900/95"></div>
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-      
+      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         
-        <h1 className="mb-8 space-y-4">
-          <span className="block text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-wider transform -rotate-1">
-            Share Your
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-400/20 rounded-full mb-8 backdrop-blur-sm">
+          <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+          <span className="text-sm font-medium text-blue-300 tracking-wide">
+            Trusted by 10,000+ Entrepreneurs
           </span>
-          <span className="block text-6xl md:text-7xl lg:text-8xl font-black text-yellow-400 uppercase tracking-tight transform rotate-1 drop-shadow-lg">
-            Startup Idea
+        </div>
+
+        {/* Main Headline */}
+        <h1 className="mb-6 space-y-3">
+          <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
+            Where <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Innovation</span>
           </span>
-          <span className="block text-2xl md:text-3xl lg:text-4xl font-light text-white/80 italic">
-            &
-          </span>
-          <span className="block text-5xl md:text-6xl lg:text-7xl font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-              Connect
-            </span>
-            <span className="text-white ml-4">with</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 ml-4">
-              Real Investors
-            </span>
+          <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
+            Meets <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Investment</span>
           </span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-100 mb-10 max-w-3xl mx-auto font-medium leading-relaxed italic">
-          "Turn your vision into reality. Join thousands of entrepreneurs connecting with investors who believe in innovation."
+        {/* Subheadline */}
+        <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+          Connect your startup with verified investors ready to fund the next big idea. 
+          Launch faster, grow smarter.
         </p>
         
-  
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-8 border-t border-white/10">
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-white mb-1">$50M+</div>
+            <div className="text-sm text-gray-400 font-medium">Funded</div>
+          </div>
+          <div className="text-center border-x border-white/10">
+            <div className="text-3xl md:text-4xl font-bold text-white mb-1">500+</div>
+            <div className="text-sm text-gray-400 font-medium">Active Investors</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-white mb-1">1,200+</div>
+            <div className="text-sm text-gray-400 font-medium">Startups</div>
+          </div>
+        </div>
+        
       </div>
     </section>
   );
