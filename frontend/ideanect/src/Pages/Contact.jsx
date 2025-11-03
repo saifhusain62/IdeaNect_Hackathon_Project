@@ -1,9 +1,15 @@
 import React from 'react'
+import Contacthero from '../components/ContactCom/Contacthero'
+import Contactinfo from '../components/ContactCom/Contactinfo'
+import ContactForm from '../components/ContactCom/ContactFrom'
 
 function Contact() {
   return (
     <div>
-      <h1>This is Contact page</h1>
+      <Contacthero />
+  
+      <Contactinfo />
+      <ContactForm />
     </div>
   )
 }

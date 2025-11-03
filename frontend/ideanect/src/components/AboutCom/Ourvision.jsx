@@ -1,4 +1,9 @@
 import React from 'react';
+import { HiOutlineSparkles, HiOutlineGlobe } from 'react-icons/hi';
+import { FiZap, FiEye, FiGlobe, FiUsers, FiTarget } from 'react-icons/fi';
+import { BsLightning } from 'react-icons/bs';
+import { RiMagicLine } from 'react-icons/ri';
+import { FaHandshake } from 'react-icons/fa';
 
 const OurVision = () => {
   return (
@@ -7,8 +12,10 @@ const OurVision = () => {
         
         {/* Section Title - Centered and Larger */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-300 rounded-full mb-6 shadow-sm">
-            <span className="text-3xl">🔮</span>
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-300 rounded-full mb-6 shadow-sm">
+            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+              <FiEye className="text-white text-xl" />
+            </div>
             <span className="text-purple-700 font-bold text-base uppercase tracking-wide">
               Our Vision
             </span>
@@ -56,25 +63,25 @@ const OurVision = () => {
             </p>
             
             <p className="text-lg text-gray-700 leading-relaxed">
-              By building a transparent and inclusive ecosystem, we’re shaping a new era of startup funding — 
+              By building a transparent and inclusive ecosystem, we're shaping a new era of startup funding — 
               one that celebrates innovation, collaboration, and impact on a global scale.
             </p>
             
             {/* Vision Points */}
             <div className="space-y-4 pt-4">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
-                  <span className="text-white text-xl">🌍</span>
+              <div className="flex items-start gap-4 group">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <HiOutlineGlobe className="text-white text-2xl" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-1">Global Accessibility</h4>
-                  <p className="text-gray-600">Breaking down barriers to make startup funding accessible everywhere</p>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Global Accessibility</h4>
+                  <p className="text-gray-600">Breaking down barriers to make startup funding accessible to everywhere</p>
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
-                  <span className="text-white text-xl">🤝</span>
+              <div className="flex items-start gap-4 group">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <FaHandshake className="text-white text-2xl" />
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-1">Trust & Transparency</h4>
@@ -82,9 +89,9 @@ const OurVision = () => {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
-                  <span className="text-white text-xl">⚡</span>
+              <div className="flex items-start gap-4 group">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <BsLightning className="text-white text-2xl" />
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-1">Innovation First</h4>
