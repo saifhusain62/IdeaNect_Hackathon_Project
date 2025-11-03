@@ -70,19 +70,19 @@ const FuturePlans = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-white font-sans">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 px-5 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-full mb-6">
+          <div className="inline-flex items-center gap-3 px-5 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-md mb-6">
             <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
               <FiMap className="text-white text-lg" />
             </div>
             <span className="text-blue-700 font-bold text-sm uppercase tracking-wide">Roadmap</span>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6">
+          <h2 className="text-5xl md:text-6xl  text-gray-900 mb-6 font-sans">
             What's Coming Next
           </h2>
           

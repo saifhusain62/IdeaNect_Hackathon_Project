@@ -43,7 +43,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+    <section className="py-32 px-6 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden font-sans">
       
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#5471ff]/5 rounded-full blur-3xl"></div>
@@ -53,14 +53,14 @@ const ContactForm = () => {
         
         {/* Premium Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#5471ff]/10 to-[#8b3ffc]/10 border border-[#5471ff]/20 rounded-full mb-8 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#5471ff]/10 to-[#8b3ffc]/10 border border-[#5471ff]/20 rounded-md mb-8 backdrop-blur-sm">
             <HiOutlineSparkles className="text-[#5471ff] text-xl" />
             <span className="text-[#5471ff] font-bold text-sm uppercase tracking-widest">
               Professional Support
             </span>
           </div>
           
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
             Let's Connect Your
             <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#5471ff] to-[#8b3ffc]">
               Talent & Vision

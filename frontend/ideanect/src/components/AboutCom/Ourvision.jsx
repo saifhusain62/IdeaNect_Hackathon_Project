@@ -12,7 +12,7 @@ const OurVision = () => {
         
         {/* Section Title - Centered and Larger */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-300 rounded-full mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-300 rounded-md mb-6 shadow-sm">
             <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
               <FiEye className="text-white text-xl" />
             </div>
@@ -21,7 +21,7 @@ const OurVision = () => {
             </span>
           </div>
           
-          <h2 className="text-6xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-6xl md:text-7xl  text-gray-900 mb-6 leading-tight font-sans">
             Shaping the
             <span className="block mt-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600">
               Future of Startup Funding

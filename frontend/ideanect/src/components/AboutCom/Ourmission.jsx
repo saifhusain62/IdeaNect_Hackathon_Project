@@ -20,7 +20,7 @@ const OurMission = () => {
             <span className="text-purple-700 font-bold text-base uppercase tracking-wide">Our Mission</span>
           </div>
           
-          <h2 className="text-6xl md:text-7xl font-extrabold text-gray-900 mb-6">
+          <h2 className="text-6xl md:text-7xl  text-gray-900 mb-6 font-sans">
             Empowering Innovators to
             <span className="block mt-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600">
               Build the Future Together
@@ -85,7 +85,7 @@ const OurMission = () => {
               </p>
             </div>
             
-            {/* Goals Grid */}
+            {/* Goa Grid */}
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="bg-white rounded-xl p-5 shadow-md border border-gray-100 hover:shadow-lg transition-shadow group">
                 <div className="flex items-center gap-3 mb-2">
@@ -96,7 +96,7 @@ const OurMission = () => {
               </div>
               
               <div className="bg-white rounded-xl p-5 shadow-md border border-gray-100 hover:shadow-lg transition-shadow group">
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-2 mb-2">
                   <FiClock className="text-blue-600 text-2xl" />
                   <div className="text-3xl font-bold text-blue-600">24/7</div>
                 </div>
