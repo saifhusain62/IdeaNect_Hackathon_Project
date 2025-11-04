@@ -13,7 +13,7 @@ const OurMission = () => {
         
         {/* Centered Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-300 rounded-md mb-8 shadow-sm">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-300 rounded-md mb-8 shadow-sm ">
             <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
               <FiTarget className="text-white text-xl" />
             </div>
