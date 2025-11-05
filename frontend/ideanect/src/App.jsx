@@ -5,7 +5,7 @@ import Navbar from './components/Navber';
 import ProtectedRoute from './components/ProtectedRoute';
 
 // Pages
-import Home from './pages/Home';
+import Home from './Pages/Home';
 import Ideas from './pages/Ideas';
 import About from './pages/About';
 import Contact from './pages/Contact';
