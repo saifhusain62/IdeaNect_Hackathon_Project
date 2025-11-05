@@ -6,11 +6,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 // Pages
 import Home from './Pages/Home';
-import Ideas from './pages/Ideas';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import Ideas from './Pages/Ideas';
+import About from './Pages/About';
+import Contact from './Pages/Contact';
+import Login from './Pages/Login';
+import Signup from './Pages/Signup';
 import Dashboard from './Pages/Dashboard';
 import IdeaSubmit from './Pages/Ideasubmit';
 import Footer from './components/Footer';
