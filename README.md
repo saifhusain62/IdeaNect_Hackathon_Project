@@ -31,6 +31,91 @@ Live Link : https://idea-nect-hackathon-project-5grs.vercel.app/
 ✅ Fully Responsive Design  
 ✅ Modern UI built with Tailwind + DaisyUI  
 
+
+
+File Structure:
+IdeaNect_Hackathon_Project/
+├─ .gitignore
+├─ README.md
+├─ docker-compose.yml          # optional: local dev with frontend+backend+mongo
+├─ .env.example
+├─ frontend/
+│  └─ ideanect/
+│     ├─ package.json
+│     ├─ tailwind.config.cjs
+│     ├─ postcss.config.cjs
+│     ├─ public/
+│     │  ├─ index.html
+│     │  └─ favicon.ico
+│     ├─ src/
+│     │  ├─ main.jsx
+│     │  ├─ app.css               # imports Tailwind base/components/utilities
+│     │  ├─ routes/
+│     │  │  ├─ AppRoutes.jsx
+│     │  │  └─ PrivateRoute.jsx
+│     │  ├─ pages/
+│     │  │  ├─ Home.jsx
+│     │  │  ├─ Explore.jsx
+│     │  │  ├─ IdeaDetail.jsx
+│     │  │  ├─ CreateIdea.jsx
+│     │  │  ├─ Profile.jsx
+│     │  │  ├─ Login.jsx
+│     │  │  └─ Register.jsx
+│     │  ├─ components/
+│     │  │  ├─ layout/
+│     │  │  │  ├─ Navbar.jsx
+│     │  │  │  └─ Footer.jsx
+│     │  │  ├─ idea/
+│     │  │  │  ├─ IdeaCard.jsx
+│     │  │  │  └─ IdeaForm.jsx
+│     │  │  ├─ ui/
+│     │  │  │  ├─ Button.jsx
+│     │  │  │  └─ Modal.jsx
+│     │  │  └─ common/
+│     │  │     └─ Avatar.jsx
+│     │  ├─ hooks/
+│     │  │  ├─ useAuth.js
+│     │  │  └─ useFetch.js
+│     │  ├─ context/
+│     │  │  └─ AuthContext.jsx
+│     │  ├─ services/
+│     │  │  └─ api.js             # axios instance + interceptors
+│     │  ├─ utils/
+│     │  │  └─ helpers.js
+│     │  └─ assets/
+│     │     ├─ images/
+│     │     └─ icons/
+│     └─ README.frontend.md
+│
+└─ backend/
+   ├─ package.json
+   ├─ server.js (or app.js)
+   ├─ .env.example
+   ├─ config/
+   │  └─ db.js                   # mongodb connection
+   ├─ controllers/
+   │  ├─ authController.js
+   │  ├─ ideaController.js
+   │  └─ userController.js
+   ├─ models/
+   │  ├─ User.model.js
+   │  └─ Idea.model.js
+   ├─ routes/
+   │  ├─ auth.routes.js
+   │  ├─ idea.routes.js
+   │  └─ user.routes.js
+   ├─ middlewares/
+   │  ├─ authMiddleware.js
+   │  └─ errorHandler.js
+   ├─ utils/
+   │  └─ validators.js
+   ├─ seed/
+   │  └─ seed.js                 # optional demo data script
+   ├─ uploads/                    # if storing image uploads locally (gitignored)
+   ├─ tests/                      # optional: integration/unit tests
+   └─ README.backend.md
+
+
 ---
 
 ## 🗂️ Project Structure
